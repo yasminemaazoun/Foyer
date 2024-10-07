@@ -17,7 +17,7 @@ import java.util.Set;
 @ToString
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Bloc {
-
+//loujitesting
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long idBloc;
