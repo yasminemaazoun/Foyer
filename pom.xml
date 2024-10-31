@@ -50,7 +50,18 @@
             <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
             <version>2.1.0</version>
         </dependency>
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-core</artifactId>
+            <version>1.10.1</version> <!-- Utilisez la version stable la plus récente -->
+        </dependency>
 
+        <!-- Micrometer Registry for Prometheus -->
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
+            <version>1.10.1</version> <!-- Utilisez la version stable la plus récente -->
+        </dependency>
 
 
     </dependencies>
