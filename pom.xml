@@ -51,16 +51,15 @@
             <version>2.1.0</version>
         </dependency>
         <dependency>
-            <groupId>io.micrometer</groupId>
-            <artifactId>micrometer-core</artifactId>
-            <version>1.10.1</version> <!-- Utilisez la version stable la plus récente -->
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+            <version>3.3.4</version>
         </dependency>
 
-        <!-- Micrometer Registry for Prometheus -->
         <dependency>
             <groupId>io.micrometer</groupId>
             <artifactId>micrometer-registry-prometheus</artifactId>
-            <version>1.10.1</version> <!-- Utilisez la version stable la plus récente -->
+            <scope>runtime</scope>
         </dependency>
 
 
