@@ -14,15 +14,14 @@
     <name>tp-foyer</name>
     <description>tp-foyer</description>
     <properties>
-        <java.version>17</java.version>
-
-        <!-- SonarQube configuration -->
-        <sonar.host.url>http://192.168.50.4:9000</sonar.host.url>
-        <sonar.login>squ_5356077143023ee421e25faf7ab59a8a9303167d</sonar.login>
-        <sonar.projectKey>tn.esprit:tp-foyer</sonar.projectKey>
-
-        <!-- Specify the path to JaCoCo report for SonarQube -->
-        <sonar.coverage.jacoco.xmlReportPaths>${project.basedir}/target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+        <java.version>1.8</java.version>
+        <maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
+        <jacoco.version>0.8.3</jacoco.version>
+        <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+        <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+        <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
+        <sonar.coverage.jacoco.xmlReportPaths>${project.basedir}/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+        <sonar.language>java</sonar.language>
     </properties>
 
     <dependencies>
