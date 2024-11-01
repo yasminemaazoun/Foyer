@@ -6,28 +6,61 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.3.4</version>
-        <relativePath/>
+        <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>tn.esprit</groupId>
     <artifactId>tp-foyer</artifactId>
     <version>5.0.0</version>
     <name>tp-foyer</name>
     <description>tp-foyer</description>
-
     <properties>
         <java.version>17</java.version>
 
         <!-- SonarQube configuration -->
-        <sonar.host.url>http://localhost:9000</sonar.host.url>
-        <sonar.login>YourSonarQubeToken</sonar.login>
-        <sonar.projectKey>YourProjectKey</sonar.projectKey>
+        <sonar.host.url>http://192.168.50.4:9000</sonar.host.url>
+        <sonar.login>squ_5356077143023ee421e25faf7ab59a8a9303167d</sonar.login>
+        <sonar.projectKey>tn.esprit:tp-foyer</sonar.projectKey>
 
         <!-- Specify the path to JaCoCo report for SonarQube -->
         <sonar.coverage.jacoco.xmlReportPaths>${project.basedir}/target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
     </properties>
 
     <dependencies>
-        <!-- Add your dependencies here -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>2.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
+            <scope>runtime</scope>
+        </dependency>
     </dependencies>
 
     <build>
