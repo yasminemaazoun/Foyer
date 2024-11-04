@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @ExtendWith(MockitoExtension.class)
-class BlocServiceImplTestCase {
+class BlocServiceImplTest { // Renamed here
     @Mock
     BlocRepository blocRepository;
 
