@@ -1,6 +1,7 @@
 package tn.esprit.tpfoyer.service;
 
 
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -11,6 +12,7 @@ import tn.esprit.tpfoyer.repository.BlocRepository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -50,10 +52,13 @@ public class BlocServiceImpl  implements IBlocService {
 
     @Transactional
     public Bloc retrieveBloc(Long blocId) {
-
-        return blocRepository.findById(blocId).get();
+        Optional<Bloc> optionalBloc = blocRepository.findById(blocId);
+        if (optionalBloc.isPresent()) {
+            return optionalBloc.get();
+        } else {
+            throw new EntityNotFoundException("Bloc with id " + blocId + " not found");
+        }
     }
-
 
     public Bloc addBloc(Bloc c) {
 

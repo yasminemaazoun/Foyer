@@ -1,12 +1,14 @@
 package tn.esprit.tpfoyer.service;
 
 
+import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import tn.esprit.tpfoyer.entity.Universite;
 import tn.esprit.tpfoyer.repository.UniversiteRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -19,8 +21,15 @@ public class UniversiteServiceImpl implements IUniversiteService {
     }
 
     public Universite retrieveUniversite(Long universiteId) {
-        return universiteRepository.findById(universiteId).get();
+        Optional<Universite> optionalUniversite = universiteRepository.findById(universiteId);
+        if (optionalUniversite.isPresent()) {
+            return optionalUniversite.get();
+        } else {
+            // Handle the case where Universite is not found
+            throw new EntityNotFoundException("Universite not found with ID: " + universiteId);
+        }
     }
+
 
     public Universite addUniversite(Universite u) {
         return universiteRepository.save(u);
