@@ -50,7 +50,12 @@
             <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
             <version>2.1.0</version>
         </dependency>
-
+          <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>4.6.1</version> <!-- Utilisez la dernière version stable -->
+            <scope>test</scope>
+        </dependency>
 
 
     </dependencies>
@@ -69,6 +74,40 @@
                     </excludes>
                 </configuration>
             </plugin>
+                 <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.8</version>
+                <executions>
+                    <execution>
+                        <id>prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                        <phase>test-compile</phase>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                        <phase>test</phase>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/site/jacoco</outputDirectory>
+                            <dataFile>${project.build.directory}/jacoco.exec</dataFile>
+                            <formats>
+                                <format>XML</format> <!-- Génération du rapport XML pour SonarQube -->
+                                <format>HTML</format> <!-- Génération optionnelle du rapport HTML pour consultation locale -->
+                            </formats>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+                 <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-site-plugin</artifactId>
+            <version>3.9.1</version> <!-- Utilisez la version appropriée -->
+        </plugin>
         </plugins>
     </build>
     <distributionManagement>
